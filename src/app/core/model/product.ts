@@ -10,7 +10,7 @@ export interface Product {
 export type ProductItem = Pick<Product, 'id' | 'title' | 'price' | 'image'>;
 export type Category = CategoryClothing | CategoryAPI | CategoryBeauty;
 
-export type CategoryBeauty = 'Producto de Belleza' | 'Producto de Belleza';
+export type CategoryBeauty = 'Producto de Belleza';
 export type CategoryClothing =
   | 'Calzado Masculino'
   | 'Ropa Femenina'

@@ -10,7 +10,14 @@ const routes: Routes = [
   {
     path: 'products',
     loadChildren: () =>
-      import('./modules/product/product.module').then((m) => m.ProductModule),
+      import('@modules/product/product.module').then((m) => m.ProductModule),
+  },
+  {
+    path: 'cart',
+    loadChildren: () =>
+      import('@modules/shopping-cart/shopping-cart.module').then(
+        (m) => m.ShoppingCartModule
+      ),
   },
 ];
 

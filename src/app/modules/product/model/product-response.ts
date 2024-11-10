@@ -1,4 +1,4 @@
-import { Product } from './product';
+import { Product } from '@core/model/product';
 
 export interface ProductResponse extends Product {
   rating: Rating;

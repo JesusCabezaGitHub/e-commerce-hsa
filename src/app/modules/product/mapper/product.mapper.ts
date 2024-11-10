@@ -1,5 +1,5 @@
-import { Product, ProductItem } from '../model/product';
-import { ProductResponse } from '../model/product-response';
+import { Product, ProductItem } from '@core/model/product';
+import { ProductResponse } from '@modules/product/model/product-response';
 
 export class ProductMapper {
   static toProductItem(productResponse: ProductResponse): ProductItem {

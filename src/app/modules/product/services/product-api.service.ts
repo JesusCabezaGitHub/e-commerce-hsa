@@ -1,16 +1,16 @@
 import { Injectable } from '@angular/core';
-import { HttpService } from 'src/app/core/services/http.service';
-import { ProductResponse } from '../model/product-response';
-import { map, Observable } from 'rxjs';
-import { Product } from '../model/product';
 
+import { Observable } from 'rxjs';
+
+import { ProductResponse } from '../model/product-response';
+import { HttpService } from '@core/services/http.service';
 @Injectable({
   providedIn: 'root',
 })
 export class ProductApiService {
-  private APIUrl: string;
+  private readonly APIUrl: string;
 
-  constructor(private http: HttpService) {
+  constructor(private readonly http: HttpService) {
     this.APIUrl = 'https://fakestoreapi.com';
   }
 

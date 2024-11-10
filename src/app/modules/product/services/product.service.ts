@@ -1,15 +1,15 @@
 import { Injectable } from '@angular/core';
-import { Product, ProductItem } from '../model/product';
-import { ProductApiService } from './product-api.service';
+import { Product, ProductItem } from '@core/model/product';
+import { ProductApiService } from '@modules/product/services/product-api.service';
 import { catchError, map, Observable, of } from 'rxjs';
-import { ProductResponse } from '../model/product-response';
-import { ProductMapper } from '../mapper/product.mapper';
+import { ProductMapper } from '@modules/product/mapper/product.mapper';
+
 
 @Injectable({
   providedIn: 'root',
 })
 export class ProductService {
-  constructor(private productApiService: ProductApiService) {}
+  constructor(private readonly productApiService: ProductApiService) { }
 
   public getProducts(): Observable<ProductItem[]> {
     return this.productApiService.getProducts().pipe(
