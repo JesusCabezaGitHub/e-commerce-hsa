@@ -1,0 +1,23 @@
+<article class="card" style="padding: 1rem; height: 100%">
+  <img
+    [src]="productItem.image"
+    class="card-img-top"
+    alt="{{ productItem.title }}"
+  />
+  <div class="card-body">
+    <h5 class="card-title">{{ productItem.title | uppercase }}</h5>
+    <p class="card-text">
+      <strong>Precio:</strong> {{ productItem.price | currency }}
+    </p>
+  </div>
+  <div class="card-footer">
+    <button
+      type="button"
+      class="btn btn-light"
+      [routerLink]="['/products', productItem.id]"
+    >
+      Ver Más
+    </button>
+    <app-add-cart [cartItem]="productInCart"></app-add-cart>
+  </div>
+</article>
