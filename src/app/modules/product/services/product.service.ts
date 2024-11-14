@@ -2,14 +2,17 @@ import { Injectable } from '@angular/core';
 import { Product, ProductItem } from '@core/model/product';
 import { ProductApiService } from '@modules/product/services/product-api.service';
 import { catchError, map, Observable, of } from 'rxjs';
-import { ProductMapper } from '@modules/product/mapper/product.mapper';
+import { ProductMapper } from '@core/mapper/product.mapper';
+import { ProductInCart } from '@app/core/model/product-in-cart';
+import { CartService } from '@app/core/services/cart.service';
 
 
 @Injectable({
   providedIn: 'root',
 })
 export class ProductService {
-  constructor(private readonly productApiService: ProductApiService) { }
+
+  constructor(private readonly productApiService: ProductApiService, private readonly cartService: CartService) { }
 
   public getProducts(): Observable<ProductItem[]> {
     return this.productApiService.getProducts().pipe(
@@ -30,4 +33,17 @@ export class ProductService {
       })
     );
   }
+
+  convertProductoToProductInCart(product: Product): ProductInCart {
+    return ProductMapper.productToProductInCart(product)
+  }
+
+  convertProductoItemToProductInCart(productItem: ProductItem): ProductInCart {
+    return ProductMapper.productItemToProductInCart(productItem)
+  }
+
+  addProductToCat(cartItem: ProductInCart) {
+    this.cartService.addItem(cartItem)
+  }
+
 }

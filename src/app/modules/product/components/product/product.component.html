@@ -27,13 +27,10 @@
           >
             Volver
           </button>
-          <button
-            type="button"
-            class="btn btn-primary"
-            [routerLink]="['/products', product?.id]"
-          >
-            Agregar al carrito
-          </button>
+          <app-add-cart
+            [cartItem]="productInCart"
+            [class]="'primary'"
+          ></app-add-cart>
         </div>
       </article>
     </div>

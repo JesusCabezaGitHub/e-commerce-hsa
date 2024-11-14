@@ -1,0 +1,30 @@
+<ng-container *ngIf="listCart && listCart.length > 0">
+  <section class="container-sm flex-column">
+    <h5>Productos añadidos al carrito</h5>
+
+    <div *ngFor="let cartItem of listCart">
+      <app-cart-item
+        [cartItem]="cartItem"
+        (amountChanged)="amountChanged($event)"
+        (removeCartItem)="onRemoveCartItem($event)"
+      ></app-cart-item>
+    </div>
+
+    <hr />
+
+    <h5 style="margin: 1rem">Total price {{ totalPrice | currency }}</h5>
+
+    <button type="button" class="btn btn-primary mx-1">comprar</button>
+    <button
+      type="button"
+      class="btn btn-danger mx-1"
+      (click)="onClearProducts()"
+    >
+      Vaciar Carrito
+    </button>
+  </section>
+</ng-container>
+
+<ng-container *ngIf="!listCart || listCart.length === 0">
+  <app-cart-empty></app-cart-empty>
+</ng-container>

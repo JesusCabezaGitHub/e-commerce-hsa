@@ -11,7 +11,13 @@
     </p>
   </div>
   <div class="card-footer">
-    <button type="button" class="btn btn-light" [routerLink]="['/products', productItem.id]">Ver Más</button>
-    <button type="button" class="btn btn-light" [routerLink]="['/products', productItem.id]">Agregar al carrito</button>
+    <button
+      type="button"
+      class="btn btn-light"
+      [routerLink]="['/products', productItem.id]"
+    >
+      Ver Más
+    </button>
+    <app-add-cart [cartItem]="productInCart"></app-add-cart>
   </div>
 </article>

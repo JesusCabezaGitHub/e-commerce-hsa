@@ -9,13 +9,11 @@ export class LocalStoreService {
   private readonly ERROR_REMOVE_CLEAN_TO_LOCAL_STORE = 'Error al limpiar ítems en localStorage:';
   private readonly ERROR_GET_ITEM_TO_LOCAL_STORE = 'Error al obtener ítems de localStorage:';
 
-  constructor() {}
+  constructor() { }
 
   addItem<T>(key: string, item: T): void {
     try {
-      const items = this.getItems<T>(key);
-      items.push(item);
-      localStorage.setItem(key, JSON.stringify(items));
+      localStorage.setItem(key, JSON.stringify(item));
     } catch (error) {
       console.error(this.ERROR_ADD_ITEM_TO_LOCAL_STORE, error);
     }
